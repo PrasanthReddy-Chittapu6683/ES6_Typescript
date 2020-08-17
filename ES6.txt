@@ -1,0 +1,12 @@
+Introduction:
+    ES6:
+    -> ES5 / ES2015 (ES6) 
+        ES6 is also refered as ES2015 (ES5 + Awesom features).
+    TypeScript:
+    -> It is a super set of Javascript which complies the .ts files to .js files.
+
+Transpilers:
+    In Transpilers ES2015 will Transpile (using Traceur / Babel / Typescript) to ES5 to run in all the browsers
+
+Commands:
+    -> npm install typescript -g (It will install typescript modules globally)
