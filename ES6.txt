@@ -364,3 +364,265 @@ Constructor in derived class:
 Modules: 
         => In ES6, we can create multiple modules and export / import them in different classes.
         => Modules are  divided the progrma that section of code in to Moduel.
+
+Module Loader:
+    => Here we are creating new folder called `ES6ModuleLoaderProject`
+    => Here we are going to use `Traceur` Transpilers instead of TypeScript
+    => Run the command to create the node_module folder with the Traceur, System.js and es6-module-loader folders
+            `npm install es6-module-loader traceur systemjs`
+
+Named Exports:
+    => In Es6 we are two different types of Exports:
+        1) Named Exports
+            => In this we need to specify the names of the varibles while immporting from other file.
+            Ex:
+                While Exporting
+                    export { fname, lname, obj };
+                WWhile Importing:
+                    import { fname as f, lname as l, obj } from "./moduleB.js";
+
+        2) Default  Exports
+            =>Default export is used when we export single value from the module file.
+            => while Importing no need to provide  { }
+                ex: While Exporting:
+                        export default fname;
+                    While Importing
+                        import fname from './moduleB.js'
+                        import {default as f } from '....' (This is for chaning the alias names)
+    => We are using two files ModuleA.js and ModuleB.js and transfering the date to each files.
+
+ Sets (Strong Set) & Maps:
+    => In Es5, We have only 1 type of collection ie., Array type
+    => Sets: Strong Set means it will store the Object references
+        => Its having list of values which doesn't haev duplicates
+        => Sets is used weather the value exists or not
+        => To create new set
+            let myset = new Set();
+        => Add values to Set:
+            myset.add('PRCV') // Can have strings
+            myset.add(1)// Can have numbers
+            myset.add(1)// Cannot have duplicates, It will ignore this.
+            myset.add(2.111)// Can have Float values
+            myset.size // Checking the size of the Set
+
+            let obj1 ={}
+            let obj2 ={}
+            myset.add(obj1)// Can have Object
+            myset.add(obj2)// Can have Object
+        => Can initialize the values in Set 
+            let newSet = new Set({1,2,4,4,6,7,3}) // Here also duplicate values will ignore
+        => Can do chaining the add method to set    
+            let chainset = new Set().add('PRC').add('Reddy')
+        => TO check weather the value exists or not
+            chainset.has('PRCV') // It will return `true`
+        => To delete the value from Set()
+            chainset.delete('PRCV');
+    => Sets (Weak Sets):
+            let myset = new Set();
+            let key={}
+            myset.add(key)
+            console.log(myset.size) // Prints: 1
+            key = null;
+            console.log(myset.size) // Prints: 1, reference of the key object still exists even if it declare as null
+        => We can retreve the reference object back using spread operator below syntax
+            key = [...myset][0]; 
+        => Some times, for Garbage collection and to avoid memory leak we prefere that the reference of the set to 
+           disapper when all other references disappes. So for this purpose ES6 brings WEAKSETS
+        => WeakSet is are same as Strong Set. Only difference in Week Sets are:
+            -  It can store only Object References, not Primitive values and Object references are weak
+                Ex: To create week set
+                    let wset = new WeakSet();
+                    let key={}
+                    wset.add(key)
+                    console.log(wset.has(key)) // PRINT: true
+                    key = null; // Here it will clear the object and cannot check the key value.
+                    
+        Ex: In ES5:
+            let myset = Object.create(null);
+            myset.id = true; // Whith this stateement it will print the below log statement
+            if(myset.id){
+                console.log('ID Exists)
+            }
+            (Or)
+            myset.id= 0 // Whith this stateement it will not print the below log statement. In ES5, weather its checking value exists or non zero. Its confusing.
+            if(myset.id){
+                console.log('ID Exists)
+    => Maps:
+        => Its collection/ordered list of Key value pairs.
+        => Both Key and Value can have any type. Where in object always can have string type.
+        => It mainly uses to retreve the data.
+            Ex: In ES5:
+                let myMap = Object.create(nulll)
+                myMap.name='PRCV'
+                let val = myMap.name;
+                console.log (val)
+        => Creat new Maps
+            let myMap = new Map()
+            muMap.set('fname','PRCV')
+            muMap.set('age',30)
+            console.log(muMap.get('age'))
+            let obj1={}
+            let obj2={}
+
+            myMap.set(obj1,10)
+            myMap.set(obj2,20)
+            console.log(muMap.get(obj1))
+            console.log(muMap.size)
+            console.log(muMap.has('fname')) // PRINT: true  
+            muMap.delete('fname')
+            console.log(muMap.has('fname')) // PRINT: false
+            muMap.clear() // It will clear all the elements.
+
+Iterating over Maps:
+
+            let mymap= new Map([
+                ['fname','Prcv'],
+                ['lname','Reddy']
+            ])
+            for(let key of mymap.keys()){
+                console.log(key)
+            }
+            for(let val of mymap.values()){
+                console.log(val)
+            }
+            for(let ent of mymap.entries()){
+                console.log(`${ent[0]} -> ${ent[1]}`)
+            }
+            for(let [k,val] of mymap.entries()){
+                console.log(`${k} -> ${val}`)
+            }
+
+ForEach:
+            let myMap= new Map([
+                ['fname','Prcv'],
+                ['lname','Reddy']
+            ])
+            myMap.forEach(mapfun)
+            function mapfun(val,k, callingMap){
+                console.log(k+" "+val)
+                console.log(myMap === callingMap)
+            }
+
+Symbols:   
+    => It will generate the Unique ID, WE can use this in obj proerties
+        Ex:
+            let s= Symbol();
+            console.log(typeof s);// PRINT: symbol
+            console.log(s.toString());// PRINT: 
+            let s2= Symbol("Test");
+            let s3= Symbol("Test");
+            console.log(s2===s3);// PRINT:false
+
+            let s4 = Symbol.for('RegSymbol'); // Here it will check the symbol name `RegSymbol` in Global Registory. If it exists it will return the existing otherwise it will create new symbol
+            let s5 = Symbol.for('RegSymbol'); 
+            console.log(s4===s5);// PRINT:true
+            console.log(Symbol.keyfor(s4));// PRINT:RegSymbol
+
+            let fname = Symbol('FirstName');
+            let person = {
+                [fname]:'PRCV';
+            }
+            console.log(Object.getOwnPropertySymbols(person));// PRINT: [Symbol(FirstName)]
+
+    => Symbol.Iterating:
+        for .. of iterater will not work for all types of object. Object should be Iterator Method.
+        To check Object is Iterator Method we use symbol.iterator
+        Ex:
+            let str="Helo'
+            let arr = [1,2,3]
+            let num = 5;
+            let Obj = {name:'PRCV'};
+            consoel.log('for string-"+ typeof str[Symbol.iterator]) // PRINT : function 
+            consoel.log('for array-"+ typeof arr[Symbol.iterator]) // PRINT : function
+            consoel.log('for number-"+ typeof num[Symbol.iterator]) // PRINT : undefined - we cannot use for loop
+            consoel.log('for oject-"+ typeof Obj[Symbol.iterator]) // PRINT : undefined - we cannot use for loop
+
+Iterables and Iterators:
+   =>  Iterables: It is an object implements the method key 
+        Iterabke{
+            [symbol.iterator](): Iterator
+        }
+    => Iterator: Its an object that implements next object
+            Iterator{
+                next(): IResultObj
+            }
+            IResultObj{
+                value: any
+                done: bool // This is true / false which returns iteration is complete or not
+            }
+    
+        Ex:
+            let lst =[1,2,3]
+            function creteIterator(array) {
+                let cont =0;
+                return {
+                    next : function() {
+                        return count < array.length ? 
+                                { value : array[count++], done:false}:
+                                {value: undefined, done:true};
+                    }
+                }
+            }
+            let myIterartor = creteIterator(lst)
+            console.log(myIterartor.next()); //PRINT : Object: {value: 1, done: false}
+            console.log(myIterartor.next()); //PRINT : Object: {value: 2, done: false}
+            console.log(myIterartor.next()); //PRINT : Object: {value: 3, done: false}
+            console.log(myIterartor.next()); //PRINT : Object: {value: undefined, done: true}
+
+Iterating Objects:
+    => for .. of loop will not work by  default on Object. There is a way to do that    
+        Ex:
+            let person ={
+                fname : 'PRCV',
+                lname:'Reddy'
+            }
+
+            person[Symbol.iterator] = function() {
+                let properties = Object.keys(person);
+                let count =0 ;
+                let isDone: false;
+                let next = () => {
+                    if(count >= properties.length) {
+                        isDone: true;
+                    }
+                    return { done: isDone, value: this[properties[count++]]};
+                }
+                return {next};
+            }
+
+            for(let p of person){
+                console.log(p); // PRINT: PRCV Reddy
+            }
+
+Genertors:
+    => Its new in ES6.
+    => Using this we can puase the function1 and in middle we can call other function2 and resume  back the functon1 and resume back it.
+    => Pausing the function is possible usng `yield` keyword.
+        Ex:
+            fucntion *createGene(){
+                yield 1;
+                console.log('After 1st yield');
+                yield 2;
+            }
+
+            let myGen = createGene();
+
+            console.log(myGen.next()); // PRINT: Object{value: 1, done: false}
+            console.log(myGen.next()); //  PRINT: After 1st yied 
+                                                  Object{value: 2, done: false}
+            console.log(myGen.next()); // PRINT: Object{value: undefined, done: true}
+        Ex:
+              let person ={
+                fname : 'PRCV',
+                lname:'Reddy'
+            }
+
+            person[Symbol.iterator] = function*() {
+                let properties = Object.keys(person);
+                for(let t of properties) {
+                    yield this[t];
+                }
+            }
+            for(let p of person) {
+                console.log(p) : //PRINT: PRCV Reddy
+            }
