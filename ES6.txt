@@ -1,4 +1,4 @@
-Introduction:
+### Introduction:
     ES6:
     -> ES5 / ES2015 (ES6) 
         ES6 is also refered as ES2015 (ES5 + Awesom features).
@@ -8,37 +8,37 @@ Introduction:
 Transpilers: ctrl+shft B (Select watch:tsconfig.json to run the Transpilers which converts .ts to .js files)
     In Transpilers ES2015 will Transpile (using Traceur / Babel / Typescript) to ES5 to run in all the browsers
 
-Commands:
-    => npm install typescript -g (It will install typescript modules globally)
-    => npm install lite-server -g (It's server which can run the application on the port number to run)
-    => lite-server (This will run and opens a default port number 3000)
-    => tsc --init (It will create tsconfig.json file)
-    => ctrl+shft B (Select watch:tsconfig.json to run the Transpilers which converts .ts to .js files)
+### Commands:
+    * npm install typescript -g (It will install typescript modules globally)
+    * npm install lite-server -g (It's server which can run the application on the port number to run)
+    * lite-server (This will run and opens a default port number 3000)
+    * tsc --init (It will create tsconfig.json file)
+    * ctrl+shft B (Select watch:tsconfig.json to run the Transpilers which converts .ts to .js files)
 
-var:
-    => It is functional scope. If we declare & use the var variable outside or insde the if, for, switch functions ..etc..,.
-    => We can redeclare the same var variable (duplicate var variables) with in the same scope
-    => Can initialize the var variable any where in the function scope (Its hoistlie)
-let
-    => It's a scope decleration, We should declare let varable global level to access inside or outside the block fucntions.
-    => we cannot redeclare the same let variable (duplicate let variables) with in the same scope   
-    => Should initialize the let variable at the starting of the function scope (Its not hoistlie)
-Ex: var & let:
-    var a = 1;
-    var b = 2;
-    if(a === 1){
-        var a = 10; // Here it will change var a =1 to 10  
-        let b = 20; // Here b is the new let variable which is different from var b = 1 
-        console.log(a); // Print 10
-        console.log(b); // Print 20 from let b=20 
-    }
-    console.log(a); // Print 10 from var a = 10 inside the if condition
-    console.log(b); // Print 2 from var b=2 declared before if condition.
-Const:
-    => Its a readonly variable
-    => Its a block scoped
-    => Must initialize the value
-    => If we create an object with `const` we cannot reassign the object(Throws error). But we cann re-assign the property for an object
+### var:
+    * It is functional scope. If we declare & use the var variable outside or insde the if, for, switch functions ..etc..,.
+    * We can redeclare the same var variable (duplicate var variables) with in the same scope
+    * Can initialize the var variable any where in the function scope (Its hoistlie)
+### let
+    * It's a scope decleration, We should declare let varable global level to access inside or outside the block fucntions.
+    * we cannot redeclare the same let variable (duplicate let variables) with in the same scope   
+    * Should initialize the let variable at the starting of the function scope (Its not hoistlie)
+    Ex: var & let:
+        var a = 1;
+        var b = 2;
+        if(a === 1){
+            var a = 10; // Here it will change var a =1 to 10  
+            let b = 20; // Here b is the new let variable which is different from var b = 1 
+            console.log(a); // Print 10
+            console.log(b); // Print 20 from let b=20 
+        }
+        console.log(a); // Print 10 from var a = 10 inside the if condition
+        console.log(b); // Print 2 from var b=2 declared before if condition.
+### Const:
+    * Its a readonly variable
+    * Its a block scoped
+    * Must initialize the value
+    * If we create an object with `const` we cannot reassign the object(Throws error). But we cann re-assign the property for an object
      Ex: const obj1{
          name:'prcv'
      }
@@ -46,20 +46,20 @@ Const:
      obj1.name = 'Reddy' // name property value is replaced.
 
 
-Arrow Functions:
-    => it a simplified version of javascript function.
+### Arrow Functions:
+    * it a simplified version of javascript function.
     Ex: Javascript function
         var getMsg =function(m){
             return 10*m;
         }
-        Arrow Function:
+    * Arrow Function:
         const getMsg = (m) => 10*m; // Here it will return 10 * m.
         (or)
         const getMsg = m => 10*m; // Here it will return 10.
         const getMsg = (m, bonus) => 10*m+bonus; // Here it will return 10*m+bonus.
 
-lexical 'this' Keyword:
-    => this keyword always carry the value of that current function. 
+### lexical 'this' Keyword:
+    * this keyword always carry the value of that current function. 
     Ex: In Javascript:
         var employee = {
             id : 1,
@@ -76,8 +76,8 @@ lexical 'this' Keyword:
             }
         }
 
-Rest Operators:
-    => It takes variable number of arguments and puts them in to single array.
+### Rest Operators:
+    * It takes variable number of arguments and puts them in to single array.
     -> It Specify's in the function decleration.
         Ex: 
             let displayColors = function(message, ...colors){
@@ -95,9 +95,9 @@ Rest Operators:
 
 
 
-Spread Operator:
-    => It is opposite to Rest Operator, It will split the array of arguments and splits it into individual elements.
-    => It Specify's in function call.
+### Spread Operator:
+    * It is opposite to Rest Operator, It will split the array of arguments and splits it into individual elements.
+    * It Specify's in function call.
         Ex: 
              let displayColors = function(message, ...colors){ // Here again ...colors will form it as an array object
                 console.log(message); // It will display string message value.
@@ -111,8 +111,8 @@ Spread Operator:
             let colorArray = ['Green', 'Blue', 'Yellow'];
             displayColors(message, ...colorArray); // Here it will split the array in to individual variables.
 
-Object Literals:
-    => Usually will create an object with key value pairs. In ES6 we have shot hand method like:
+### Object Literals:
+    * Usually will create an object with key value pairs. In ES6 we have shot hand method like:
         Ex: Old method
                 let firstName = "John"
                 let lastName = "Doe"
@@ -153,7 +153,7 @@ Object Literals:
                 console.log(p.fullName)
                 console.log(p.isSenior())
                 console.log(p.isSeniorfunc())
-        => In Object Literals we can have spaces in the property names:
+        * In Object Literals we can have spaces in the property names:
             Ex: let ln = "last Name";
                 let person = {
                     "fist Name": "John",
@@ -162,8 +162,8 @@ Object Literals:
                 console.log(person); // It will print person object {"first Name": John, "last Name":Deo};
                 console.log(person["first Name"]); // It will print   `John`;
 
-Destructuring Array: 
-        => Here, we are assigning the values of array to individual variables in ES6
+### Destructuring Array: 
+        * Here, we are assigning the values of array to individual variables in ES6
             Ex: 
                 let employee =["John", "Doe"]
                 let [fname, lname, gender] = employee;
@@ -171,20 +171,20 @@ Destructuring Array:
                 console.log(fname);//  It will print `John`
                 console.log(lname);//  It will print `Deo`
                 console.log(fname);//  It will print `undefined` because we are not passing gender information in 3rd parameter.
-        => We can Destructuring the necessary value in the array
+        * We can Destructuring the necessary value in the array
             Ex: 
                 let employee =["John", "Doe","Male"]
                 let [, , gender] = employee; // Here jsut pass an empty space in 1st and 2nd arguments. we are using only Gender information from array.
 
                 console.log(gender);//  It will print `Male`
-        => We can Destructuring the array in to single argument and list of array elements also using Rest Operator:
+        * We can Destructuring the array in to single argument and list of array elements also using Rest Operator:
             Ex:
                 let employee =["John", "Doe","Male","Married"]
                 let [fname, ...elements] = employee;
 
                 console.log(fname);
                 console.log(elements); // It will print the array object with ["Doe","Male","Married"]
-        => We can Destructuring with default values
+        * We can Destructuring with default values
             Ex:
                  let employee =["John", "Doe"]
 
@@ -194,8 +194,8 @@ Destructuring Array:
                 console.log(lname);//  It will print `Deo`
                 console.log(fname);//  It will print `Male`
 
-Destructuring Object: 
-        => In ES6 we can create alias name if the property name are big to use mutiple places
+### Destructuring Object: 
+        * In ES6 we can create alias name if the property name are big to use mutiple places
             Ex:
                 let employee ={
                   fname: "John",lname: "Doe",gender: "Male"
@@ -205,9 +205,9 @@ Destructuring Object:
                 console.log(l);//  It will print `Doe`
                 console.log(g);//  It will print `Male`
 
-String Templates:
-        => We can concatinate the string with + symbol. But in ES6, we use ${} syntax.
-        => It will support multi line string concatination when using back ticks `
+### String Templates:
+        * We can concatinate the string with + symbol. But in ES6, we use ${} syntax.
+        * It will support multi line string concatination when using back ticks `
             Ex:
                 let user = "Prasanth"
 
@@ -217,7 +217,7 @@ String Templates:
                 console.log(greet);// It will print ` Welcome Prasanth to ES6 Tutorial 
 
 
-for of Loop:
+### for of Loop:
     Ex: 
         let colors = ["Red", "Green", "Blue"];
 
@@ -236,15 +236,15 @@ for of Loop:
             console.log(letter); 
         }
 
-Classes in ES6:
-        =>  Classes are just a special functions, but only different is Classes and Unlike functions are not hoisted.
+### Classes in ES6:
+        *  Classes are just a special functions, but only different is Classes and Unlike functions are not hoisted.
             Ex: 
                 class Person {
 
                 }
                 let p = new Person();
                 console.log(typeof Person); // It will Print `function`
-        => Adding method to  the class is same as adding method to the prototype object.
+        * Adding method to  the class is same as adding method to the prototype object.
             Ex: 
                 class Person {
                     greetings(){
@@ -253,7 +253,7 @@ Classes in ES6:
                 }
                 console.log(p.greetings === Person.prototype.greetings); // It will Print `true`
 
-Class Body and Methods:
+### Class Body and Methods:
 
             Ex:
                 class Person {
@@ -272,9 +272,9 @@ Class Body and Methods:
                 Person.staticMethod(); // Static Method: Here we can call the staticMethod using directly with class name Person instead of p.staticMethod()
                 p.greetPerson(); // Prototype Method: Which can call each object.
 
-Class Inheritance:
-        => In ES6, Class Inheritance is possible using `extends` keyword.
-        => `Exenteds` keyword is used to create a new class that inhertits Parent class.
+### Class Inheritance:
+        * In ES6, Class Inheritance is possible using `extends` keyword.
+        * `Exenteds` keyword is used to create a new class that inhertits Parent class.
             Ex: Constructor in Parent class
                 class Person {
                     constructor() {
@@ -293,9 +293,9 @@ Class Inheritance:
                 class Employee1  extends Person1{
                 }
                  let e= new Employee1("PRCV"); // It will print `PRCV Person class Constructor` It will invoke Person1 class parameter constructor even if the Employee1 class doent have parameter constructor.
-Constructor in derived class:
-        => To create constructor in derived class, need to use super() call
-        => super() keyword is, Parent class constructor needs to call before the sub class constructor. This ensure if we call any method on the Parent class in the constructor, 
+### Constructor in derived class:
+        * To create constructor in derived class, need to use super() call
+        * super() keyword is, Parent class constructor needs to call before the sub class constructor. This ensure if we call any method on the Parent class in the constructor, 
             the parent is already successfully setup.
             Ex: 
                 class Person1 {
@@ -334,7 +334,7 @@ Constructor in derived class:
                 PRCV Person1 class Construct
                 PRCV Employee1 class Construct
                 50
-        => Suppose if we  want to access the Parent class getID method. we need to use super() method.
+        * Suppose if we  want to access the Parent class getID method. we need to use super() method.
             Ex:
                 class Person1 {
                     constructor(name ) {
@@ -361,20 +361,20 @@ Constructor in derived class:
                 10
 
 
-Modules: 
-        => In ES6, we can create multiple modules and export / import them in different classes.
-        => Modules are  divided the progrma that section of code in to Moduel.
+### Modules: 
+    * In ES6, we can create multiple modules and export / import them in different classes.
+    * Modules are  divided the progrma that section of code in to Moduel.
 
-Module Loader:
-    => Here we are creating new folder called `ES6ModuleLoaderProject`
-    => Here we are going to use `Traceur` Transpilers instead of TypeScript
-    => Run the command to create the node_module folder with the Traceur, System.js and es6-module-loader folders
+### Module Loader:
+    * Here we are creating new folder called `ES6ModuleLoaderProject`
+    * Here we are going to use `Traceur` Transpilers instead of TypeScript
+    * Run the command to create the node_module folder with the Traceur, System.js and es6-module-loader folders
             `npm install es6-module-loader traceur systemjs`
 
-Named Exports:
-    => In Es6 we are two different types of Exports:
+### Named Exports:
+    * In Es6 we are two different types of Exports:
         1) Named Exports
-            => In this we need to specify the names of the varibles while immporting from other file.
+            * In this we need to specify the names of the varibles while immporting from other file.
             Ex:
                 While Exporting
                     export { fname, lname, obj };
@@ -382,23 +382,23 @@ Named Exports:
                     import { fname as f, lname as l, obj } from "./moduleB.js";
 
         2) Default  Exports
-            =>Default export is used when we export single value from the module file.
-            => while Importing no need to provide  { }
+            *Default export is used when we export single value from the module file.
+            * while Importing no need to provide  { }
                 ex: While Exporting:
                         export default fname;
                     While Importing
                         import fname from './moduleB.js'
                         import {default as f } from '....' (This is for chaning the alias names)
-    => We are using two files ModuleA.js and ModuleB.js and transfering the date to each files.
+    * We are using two files ModuleA.js and ModuleB.js and transfering the date to each files.
 
- Sets (Strong Set) & Maps:
-    => In Es5, We have only 1 type of collection ie., Array type
-    => Sets: Strong Set means it will store the Object references
-        => Its having list of values which doesn't haev duplicates
-        => Sets is used weather the value exists or not
-        => To create new set
+### Sets (Strong Set) & Maps:
+    * In Es5, We have only 1 type of collection ie., Array type
+    * Sets: Strong Set means it will store the Object references
+        * Its having list of values which doesn't haev duplicates
+        * Sets is used weather the value exists or not
+        * To create new set
             let myset = new Set();
-        => Add values to Set:
+        * Add values to Set:
             myset.add('PRCV') // Can have strings
             myset.add(1)// Can have numbers
             myset.add(1)// Cannot have duplicates, It will ignore this.
@@ -409,26 +409,26 @@ Named Exports:
             let obj2 ={}
             myset.add(obj1)// Can have Object
             myset.add(obj2)// Can have Object
-        => Can initialize the values in Set 
+        * Can initialize the values in Set 
             let newSet = new Set({1,2,4,4,6,7,3}) // Here also duplicate values will ignore
-        => Can do chaining the add method to set    
+        * Can do chaining the add method to set    
             let chainset = new Set().add('PRC').add('Reddy')
-        => TO check weather the value exists or not
+        * TO check weather the value exists or not
             chainset.has('PRCV') // It will return `true`
-        => To delete the value from Set()
+        * To delete the value from Set()
             chainset.delete('PRCV');
-    => Sets (Weak Sets):
+    * Sets (Weak Sets):
             let myset = new Set();
             let key={}
             myset.add(key)
             console.log(myset.size) // Prints: 1
             key = null;
             console.log(myset.size) // Prints: 1, reference of the key object still exists even if it declare as null
-        => We can retreve the reference object back using spread operator below syntax
+        * We can retreve the reference object back using spread operator below syntax
             key = [...myset][0]; 
-        => Some times, for Garbage collection and to avoid memory leak we prefere that the reference of the set to 
+        * Some times, for Garbage collection and to avoid memory leak we prefere that the reference of the set to 
            disapper when all other references disappes. So for this purpose ES6 brings WEAKSETS
-        => WeakSet is are same as Strong Set. Only difference in Week Sets are:
+        * WeakSet is are same as Strong Set. Only difference in Week Sets are:
             -  It can store only Object References, not Primitive values and Object references are weak
                 Ex: To create week set
                     let wset = new WeakSet();
@@ -447,16 +447,16 @@ Named Exports:
             myset.id= 0 // Whith this stateement it will not print the below log statement. In ES5, weather its checking value exists or non zero. Its confusing.
             if(myset.id){
                 console.log('ID Exists)
-    => Maps:
-        => Its collection/ordered list of Key value pairs.
-        => Both Key and Value can have any type. Where in object always can have string type.
-        => It mainly uses to retreve the data.
+    * Maps:
+        * Its collection/ordered list of Key value pairs.
+        * Both Key and Value can have any type. Where in object always can have string type.
+        * It mainly uses to retreve the data.
             Ex: In ES5:
                 let myMap = Object.create(nulll)
                 myMap.name='PRCV'
                 let val = myMap.name;
                 console.log (val)
-        => Creat new Maps
+        * Creat new Maps
             let myMap = new Map()
             muMap.set('fname','PRCV')
             muMap.set('age',30)
@@ -473,7 +473,7 @@ Named Exports:
             console.log(muMap.has('fname')) // PRINT: false
             muMap.clear() // It will clear all the elements.
 
-Iterating over Maps:
+### Iterating over Maps:
 
             let mymap= new Map([
                 ['fname','Prcv'],
@@ -492,7 +492,7 @@ Iterating over Maps:
                 console.log(`${k} -> ${val}`)
             }
 
-ForEach:
+### ForEach:
             let myMap= new Map([
                 ['fname','Prcv'],
                 ['lname','Reddy']
@@ -503,8 +503,8 @@ ForEach:
                 console.log(myMap === callingMap)
             }
 
-Symbols:   
-    => It will generate the Unique ID, WE can use this in obj proerties
+### Symbols:   
+    * It will generate the Unique ID, WE can use this in obj proerties
         Ex:
             let s= Symbol();
             console.log(typeof s);// PRINT: symbol
@@ -524,7 +524,7 @@ Symbols:
             }
             console.log(Object.getOwnPropertySymbols(person));// PRINT: [Symbol(FirstName)]
 
-    => Symbol.Iterating:
+    * Symbol.Iterating:
         for .. of iterater will not work for all types of object. Object should be Iterator Method.
         To check Object is Iterator Method we use symbol.iterator
         Ex:
@@ -537,12 +537,12 @@ Symbols:
             consoel.log('for number-"+ typeof num[Symbol.iterator]) // PRINT : undefined - we cannot use for loop
             consoel.log('for oject-"+ typeof Obj[Symbol.iterator]) // PRINT : undefined - we cannot use for loop
 
-Iterables and Iterators:
-   =>  Iterables: It is an object implements the method key 
+### Iterables and Iterators:
+   *  Iterables: It is an object implements the method key 
         Iterabke{
             [symbol.iterator](): Iterator
         }
-    => Iterator: Its an object that implements next object
+    * Iterator: Its an object that implements next object
             Iterator{
                 next(): IResultObj
             }
@@ -569,8 +569,8 @@ Iterables and Iterators:
             console.log(myIterartor.next()); //PRINT : Object: {value: 3, done: false}
             console.log(myIterartor.next()); //PRINT : Object: {value: undefined, done: true}
 
-Iterating Objects:
-    => for .. of loop will not work by  default on Object. There is a way to do that    
+### Iterating Objects:
+    * for .. of loop will not work by  default on Object. There is a way to do that    
         Ex:
             let person ={
                 fname : 'PRCV',
@@ -594,10 +594,10 @@ Iterating Objects:
                 console.log(p); // PRINT: PRCV Reddy
             }
 
-Genertors:
-    => Its new in ES6.
-    => Using this we can puase the function1 and in middle we can call other function2 and resume  back the functon1 and resume back it.
-    => Pausing the function is possible usng `yield` keyword.
+### Genertors:
+    * Its new in ES6.
+    * Using this we can puase the function1 and in middle we can call other function2 and resume  back the functon1 and resume back it.
+    * Pausing the function is possible usng `yield` keyword.
         Ex:
             fucntion *createGene(){
                 yield 1;
